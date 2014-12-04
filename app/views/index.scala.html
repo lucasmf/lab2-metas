@@ -10,10 +10,12 @@
         <div class="page-header" style="text-align: center">
             <h1>Gerenciador de Metas</h1>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <form action="@routes.Application.novaMeta()" method="post">
                 <label for="nome"> Nome: </label>
                 <input type="text" name="nome" id="inputNome" class="form-control"required="required">
+                <label for="descricao"> Descrição: </label>
+                <input type="text" name="descricao" id="inputDescricao" class="form-control"required="required">
                 <label for="semanasRestantes"> Semanas restantes: </label>
                 <select name="semanasRestantes" id="inputSemanasRestantes" class="form-control" required="required">
                     <option>1</option>
@@ -34,11 +36,12 @@
                 <input type="submit" class="btn btn-primary" value="Create">
             </form>
         </div>
-        <div class="col-md-8">
-            <table class="table table-bordered">
+        <div class="col-md-9">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Meta </th>
+                        <th>Descrição </th>
                         <th>Semanas restantes </th>
                         <th>Prioridade</th>
                         <th>Status</th>
@@ -50,6 +53,7 @@
                         @if(meta.getAlcancada() == 1) {
                             <tr class="success">
                                 <td>@meta.getNome()</td>
+                                <td>@meta.getDescricao()</td>
                                 <td>@meta.getSemanasRestantes()</td>
                                 <td>@meta.getPrioridade()</td>
                                 <td>Alcançada!</td>
@@ -60,6 +64,7 @@
                                         </button>
                                     </form>
                                 </td>
+                                <td></td>
 
                             </tr>
                         }
@@ -68,20 +73,24 @@
                         @if(meta.getAlcancada() == 0) {
                             <tr class="info">
                                 <td>@meta.getNome()</td>
+                                <td>@meta.getDescricao()</td>
                                 <td>@meta.getSemanasRestantes()</td>
                                 <td>@meta.getPrioridade()</td>
                                 <td>Pendente</td>
+                                <td>
+                                    <form action="@routes.Application.alcancarMeta(meta.getId())" method="post">
+                                        <button class="btn btn-success" id="alcancar">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </button>
+                                    </form>
+                                </td>
                                 <td>
                                     <form action="@routes.Application.deletaMeta(meta.getId())" method="post">
                                         <button class="btn btn-danger" id="remover">
                                             <span class="glyphicon glyphicon-remove"></span>
                                         </button>
                                     </form>
-                                    <form action="@routes.Application.alcancarMeta(meta.getId())" method="post">
-                                        <button class="btn btn-success" id="alcancar">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </button>
-                                    </form>
+
                                 </td>
 
                             </tr>

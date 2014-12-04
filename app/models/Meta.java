@@ -14,18 +14,28 @@ public class Meta implements Comparable{
     @GeneratedValue(strategy = GenerationType.TABLE)
     private long id;
 
-    String nome;
-    int semanasRestantes;
-    int prioridade;
-    int alcancada;
+    private String nome;
+    private String descricao;
+    private int semanasRestantes;
+    private int prioridade;
+    private int alcancada;
 
     public Meta() {}
 
-    public Meta(String nome, int semanasRestantes, int prioridade) {
+    public Meta(String nome, String descricao,  int semanasRestantes, int prioridade) {
         this.nome = nome;
+        this.descricao = descricao;
         this.semanasRestantes = semanasRestantes;
         this.prioridade = prioridade;
         alcancada = 0;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public int getAlcancada() {

@@ -63,9 +63,9 @@ public class ApplicationTest {
     }
 
     @Test
-    public void deveComecarVazio() {
+    public void deveComecarCom10Metas() {
         List<Meta> metas = dao.findAllByClass(Meta.class);
-        assertThat(metas.size()).isEqualTo(0);
+        assertThat(metas.size()).isEqualTo(10);
     }
 
     @Test
@@ -73,7 +73,7 @@ public class ApplicationTest {
         Meta meta = new Meta();
         dao.persist(meta);
         List<Meta> metas = dao.findAllByClass(Meta.class);
-        assertThat(metas.size()).isEqualTo(1);
+        assertThat(metas.size()).isEqualTo(11);
     }
 
 
