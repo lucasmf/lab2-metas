@@ -20,6 +20,7 @@ public class Application extends Controller {
     @Transactional
     public static Result index() {
         //dao.persist(new Meta("minha meta", null, 1));
+        System.out.println("rodandoIndex");
         List<Meta> metas = dao.findAllByClass(Meta.class);
         Collections.sort(metas);
         return ok(index.render(metas, "Your new application is ready."));

@@ -1,8 +1,6 @@
-import controllers.Application;
+import play.*;
 import models.Meta;
 import models.dao.GenericDAO;
-import play.GlobalSettings;
-import play.*;
 import play.db.jpa.JPA;
 
 public class Global extends GlobalSettings {
@@ -15,7 +13,7 @@ public class Global extends GlobalSettings {
 
             @Override
             public void invoke() throws Throwable {
-                Logger.info("rodadndo");
+                System.out.println("!!rodandoGlobal");
                 dao.persist(new Meta("Pagar Si1", "aprender", 1, 5));
                 dao.persist(new Meta("Pagar Si2", "aprender mais", 1, 5));
                 dao.persist(new Meta("Pagar AA1", "se divertir", 1, 5));
@@ -26,7 +24,6 @@ public class Global extends GlobalSettings {
                 dao.persist(new Meta("Pagar AA6", "se divertir+=5", 5, 5));
                 dao.persist(new Meta("Pagar AA7", "se divertir+=6", 6, 5));
                 dao.persist(new Meta("Se formar", "para ganhar dinheiro", 6, 5));
-
                 dao.flush();
 
             }
