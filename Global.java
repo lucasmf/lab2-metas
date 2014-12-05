@@ -20,10 +20,10 @@ public class Global extends GlobalSettings {
                 dao.persist(new Meta("Pagar AA2", "se divertir++", 1, 5));
                 dao.persist(new Meta("Pagar AA3", "se divertir+=2", 2, 5));
                 dao.persist(new Meta("Pagar AA4", "se divertir+=3", 3, 5));
-                dao.persist(new Meta("Pagar AA5", "se divertir+=4", 4, 5));
-                dao.persist(new Meta("Pagar AA6", "se divertir+=5", 5, 5));
-                dao.persist(new Meta("Pagar AA7", "se divertir+=6", 6, 5));
-                dao.persist(new Meta("Se formar", "para ganhar dinheiro", 6, 5));
+                dao.persist(new Meta("Pagar AA5", "se divertir+=4", 3, 5));
+                dao.persist(new Meta("Pagar AA6", "se divertir+=5", 3, 5));
+                dao.persist(new Meta("Pagar AA7", "se divertir+=6", 3, 5));
+                dao.persist(new Meta("Se formar", "para ganhar dinheiro", 3, 5));
                 dao.flush();
 
             }

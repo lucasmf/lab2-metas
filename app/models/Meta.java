@@ -74,6 +74,10 @@ public class Meta implements Comparable{
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public int compareTo(Object o) {
         Meta outraMeta = (Meta)o;

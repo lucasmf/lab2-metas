@@ -41,7 +41,7 @@ public class ApplicationTest {
 
     @Before
     public void setUp() {
-        FakeApplication app = Helpers.fakeApplication(new GlobalSettings());
+        FakeApplication app = Helpers.fakeApplication();
         Helpers.start(app);
         Option<JPAPlugin> jpaPlugin = app.getWrappedApplication().plugin(JPAPlugin.class);
         em = jpaPlugin.get().em("default");
@@ -63,7 +63,7 @@ public class ApplicationTest {
     }
 
     @Test
-    public void deveComecarCom10Metas() {
+    public void deveComecarVazio() {
         List<Meta> metas = dao.findAllByClass(Meta.class);
         assertThat(metas.size()).isEqualTo(10);
     }
@@ -74,8 +74,35 @@ public class ApplicationTest {
         dao.persist(meta);
         List<Meta> metas = dao.findAllByClass(Meta.class);
         assertThat(metas.size()).isEqualTo(11);
+        meta = new Meta();
+        dao.persist(meta);
+        metas = dao.findAllByClass(Meta.class);
+        assertThat(metas.size()).isEqualTo(12);
+        meta = new Meta();
+        dao.persist(meta);
+        metas = dao.findAllByClass(Meta.class);
+        assertThat(metas.size()).isEqualTo(13);
+        meta = new Meta();
+        dao.persist(meta);
+        metas = dao.findAllByClass(Meta.class);
+        assertThat(metas.size()).isEqualTo(14);
     }
 
+    /*@Test
+    public void deveRemoverMetas() {
+        Meta meta = new Meta();
+        dao.persist(meta);
+        List<Meta> metas = dao.findAllByClass(Meta.class);
+        assertThat(metas.size()).isEqualTo(11);
+        meta = new Meta();
+        long removeId = meta.getId();
+        dao.persist(meta);
+        metas = dao.findAllByClass(Meta.class);
+        assertThat(metas.size()).isEqualTo(12);
+        dao.removeById(Meta.class, removeId);
+        metas = dao.findAllByClass(Meta.class);
+        assertThat(metas.size()).isEqualTo(11);
+    }*/
 
 
 
