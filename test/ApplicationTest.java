@@ -88,21 +88,17 @@ public class ApplicationTest {
         assertThat(metas.size()).isEqualTo(14);
     }
 
-    /*@Test
+    @Test
     public void deveRemoverMetas() {
-        Meta meta = new Meta();
+        Meta meta = new Meta("a", "a", 1, 1);
         dao.persist(meta);
         List<Meta> metas = dao.findAllByClass(Meta.class);
         assertThat(metas.size()).isEqualTo(11);
-        meta = new Meta();
         long removeId = meta.getId();
-        dao.persist(meta);
-        metas = dao.findAllByClass(Meta.class);
-        assertThat(metas.size()).isEqualTo(12);
         dao.removeById(Meta.class, removeId);
         metas = dao.findAllByClass(Meta.class);
-        assertThat(metas.size()).isEqualTo(11);
-    }*/
+        assertThat(metas.size()).isEqualTo(10);
+    }
 
 
 
