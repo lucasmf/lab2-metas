@@ -56,6 +56,8 @@ public class Application extends Controller {
     public static Result alcancarMeta(Long id) {
         Meta meta = dao.findByEntityId(Meta.class, id);
         meta.setAlcancada(1);
+        dao.merge(meta);
+        dao.flush();
         return redirect(routes.Application.index());
     }
 
