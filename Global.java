@@ -13,7 +13,6 @@ public class Global extends GlobalSettings {
 
             @Override
             public void invoke() throws Throwable {
-                System.out.println("!!rodandoGlobal");
                 dao.persist(new Meta("Pagar Si1", "aprender", 1, 5));
                 dao.persist(new Meta("Pagar Si2", "aprender mais", 1, 5));
                 dao.persist(new Meta("Pagar AA1", "se divertir", 1, 5));
